@@ -1,34 +1,36 @@
-# Google-Collab-Script-to-Remotely-Upload-Files-to-Your-Google-Drive
-This script enables parallel downloading of files from Google Drive and other direct download links. It converts Google Drive view links into download links, and uses Python's concurrent.futures for efficient multi-threaded downloads. It's designed for use in Google Colab, and mounts your Google Drive for file storage.
+# Google Colab File Downloader
 
-# Google Drive and Direct Download Links Downloader
+This Python script is designed to download a file from a given URL and save it to a specified folder in your Google Drive. It runs in a Google Colab notebook and displays the progress of the download.
 
-This script enables parallel downloading of files from Google Drive and other direct download links in Google Colab. It converts Google Drive view links into download links and uses Python's `concurrent.futures` for efficient multi-threaded downloads.
+## Features
 
-## Prerequisites
-
-- Google Colab environment
-- Google Drive mounted on the Colab environment
+- Downloads a file from a given URL
+- Saves the file to a specified folder in your Google Drive
+- Displays the progress of the download
+- Uses the original file name from the server
 
 ## Usage
 
-1. **Mount Google Drive**: The script mounts your Google Drive to the Colab environment for file storage.
+1. Open a new Google Colab notebook.
+2. Copy and paste the script into a cell in the notebook.
+3. Replace `'paste_download_link_here'` with the URL of the file you want to download.
+4. Replace `'My Drive/'` with the path to the folder in your Google Drive where you want to save the file.
+5. Run the cell to start the download.
 
-2. **Specify Links**: Replace the `google_drive_view_links` and `other_links` variables with your own string of Google Drive view links and list of other direct download links.
+6. After running the cell, the file will be downloaded from the specified URL and saved to the specified folder in your Google Drive. The progress of the download will be displayed in the output.
 
-    ```python
-    google_drive_view_links = 'https://drive.google.com/file/d/1JIeDf-U-Ipn3qp6BOKQQT6nIhQIUnqou/view,https://drive.google.com/file/d/1WXSmhpfQgGtbv-RUXxfAXduWxmIq4nk6/view'
-    other_links = ['http://example.com/file1', 'http://example.com/file2']
-    ```
+7. You can check your Google Drive to verify that the file has been successfully downloaded and saved.
 
-3. **Specify Save Location**: Replace the `output` variable with your desired save location.
+8. If you want to download a different file, simply replace the URL in the script with the URL of the desired file.
 
-    ```python
-    output = '/content/drive/My Drive/gdrivefiles/'
-    ```
+9. If you want to save the file to a different folder in your Google Drive, replace the path in the script with the path to the desired folder.
 
-4. **Run the Script**: Run the script in your Google Colab environment. It will download the files from the specified links in parallel to the specified location.
+10. You can also customize the script further to suit your needs. For example, you can add error handling or modify the progress display.
+
+11. Enjoy using the Google Colab File Downloader!
+
+Feel free to reach out if you have any questions or need further assistance.
 
 ## Note
 
-While this script speeds up the total download time, it also increases the load on your network connection, as multiple files are being downloaded at once.
+This script assumes that the server includes a Content-Length header in its response, which is used to determine the total file size. If the server doesn’t include this header, the progress bar will still work, but it won’t know the total file size, so it will display the progress as a continuously growing bar rather than a percentage.
